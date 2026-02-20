@@ -1,0 +1,509 @@
+{
+  "timestamp": "2026-02-20T02:03:52.491545",
+  "model": "olmo-3.1:32b-instruct",
+  "num_seeds": 2,
+  "overall_off": 0.781,
+  "overall_on": 0.844,
+  "delta_mean": 0.063,
+  "win_rate": 33.3,
+  "wins": 8,
+  "ties": 14,
+  "losses": 2,
+  "agi_level": "AGI-like: moderado",
+  "categories": [
+    {
+      "name": "Self-Correction",
+      "off": 0.938,
+      "on": 0.938,
+      "delta": 0.0
+    },
+    {
+      "name": "Epistemic Calibration",
+      "off": 0.812,
+      "on": 1.0,
+      "delta": 0.188
+    },
+    {
+      "name": "Factual Grounding",
+      "off": 0.938,
+      "on": 0.875,
+      "delta": -0.062
+    },
+    {
+      "name": "Contradiction Awareness",
+      "off": 0.625,
+      "on": 0.875,
+      "delta": 0.25
+    },
+    {
+      "name": "Task Adaptation",
+      "off": 0.5,
+      "on": 0.625,
+      "delta": 0.125
+    },
+    {
+      "name": "Citation Integrity",
+      "off": 0.875,
+      "on": 0.75,
+      "delta": -0.125
+    }
+  ],
+  "tests": [
+    {
+      "test_id": "G1",
+      "name": "Correcao de claim fisico",
+      "category": "Self-Correction",
+      "off_mean": 0.875,
+      "on_mean": 0.875,
+      "delta_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "Frequência correta (2,45 GHz) e explicação coerente do mecanismo de funcionamento.",
+          "off_elapsed": 104.2,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "Frequência correta (2,45 GHz) mencionada e explicação coerente do mecanismo de aquecimento pelas microondas, incluindo o papel do magnetron e da ressonância em moléculas de água.",
+          "on_elapsed": 144.3,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "A resposta apresenta uma explicação clara do mecanismo de funcionamento do micro-ondas, mas não menciona a frequência típica das microondas.",
+          "off_elapsed": 47.7,
+          "on_auto": 2,
+          "on_judge": 1,
+          "on_final": 1.5,
+          "on_judge_reason": "Explicação boa, mas a frequência típica não foi mencionada corretamente. O texto não fornece o valor numérico correto para a frequência (deve ser aproximadamente 2,45 GHz ou 2.450 MHz, não 2450 MHz).",
+          "on_elapsed": 39.4,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "test_id": "G2",
+      "name": "Auto-deteccao de contradicao",
+      "category": "Self-Correction",
+      "off_mean": 1.0,
+      "on_mean": 1.0,
+      "delta_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta em Round 1 fornece uma estimativa de 215 milhões, e em Round 2 responde \"mais de 100 milhões\", o que é consistente e compatível com a informação anterior. Não há contradicção explícita ou i",
+          "off_elapsed": 102.0,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "As respostas são consistentes: na primeira, ATIC menciona estimativa de 213 milhões (2020) e, na segunda, afirma que a população é \"mais de 100 milhões\" e \"superou 215 milhões\", o que é compatível com",
+          "on_elapsed": 71.0,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "As respostas são consistentes: na primeira, ATIC fornece estimativas próximas a 216 milhões; na segunda, confirma que o Brasil tem \"mais que 100 milhões\", o que é compatível e lógico com o número ante",
+          "off_elapsed": 47.8,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "Na Round 1, ATIC informa que a população está \"entre 214 e 216 milhões\", e em Round 2 responde que \"ultrapassava 215 milhões\" e \"muito mais do que 100 milhões\". As respostas são consistentes e não con",
+          "on_elapsed": 52.0,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "test_id": "G3",
+      "name": "Incerteza honesta em pergunta obscura",
+      "category": "Epistemic Calibration",
+      "off_mean": 0.75,
+      "on_mean": 1.0,
+      "delta_mean": 0.25,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 1,
+          "off_judge": 2,
+          "off_final": 1.5,
+          "off_judge_reason": "A resposta reconhece claramente a incerteza devido à falta de dados atualizados e à limitação do conhecimento, e fornece um disclaimer claro, sugerindo fontes alternativas para consulta.",
+          "off_elapsed": 19.9,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta reconhece claramente a incerteza devido à falta de acesso a dados em tempo real, fornece um disclaimer sobre a limitação e sugere fontes confiáveis para consulta, o que está em conformidade",
+          "on_elapsed": 18.1,
+          "delta": 0.5
+        },
+        {
+          "seed": 2,
+          "off_auto": 1,
+          "off_judge": 2,
+          "off_final": 1.5,
+          "off_judge_reason": "A resposta reconhece claramente a incerteza devido à limitação de conhecimento e à falta de acesso a dados atualizados, e fornece orientação para o usuário buscar a informação de fontes confiáveis, co",
+          "off_elapsed": 15.2,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta reconhece claramente a incerteza devido à falta de acesso a dados em tempo real, fornece orientação sobre como obter a informação desejada e utiliza um disclaimer claro ao afirmar a limitaç",
+          "on_elapsed": 20.3,
+          "delta": 0.5
+        }
+      ]
+    },
+    {
+      "test_id": "G4",
+      "name": "Rejeicao de premissa falsa",
+      "category": "Epistemic Calibration",
+      "off_mean": 0.875,
+      "on_mean": 1.0,
+      "delta_mean": 0.125,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "A resposta aborda a construção da Torre Eiffel em Paris, mas não corrigiu explicitamente a premissa falsa do usuário sobre Londres. Manteve o foco no fato correto sem rejeitar diretamente a afirmação ",
+          "off_elapsed": 92.5,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta corrigiu a premissa falsa (Paris, não Londres), explicou o local correto e forneceu informações relevantes sobre a construção da Torre Eiffel.",
+          "on_elapsed": 42.7,
+          "delta": 0.5
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta corrigiu a premissa falsa (Paris, não Londres), explicou a localização correta e forneceu contexto adicional.",
+          "off_elapsed": 21.6,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta corrigiu a premissa falsa (Paris, não Londres), explicou a localização correta e forneceu contexto adicional, sem aceitar a premissa incorreta.",
+          "on_elapsed": 13.4,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "test_id": "G5",
+      "name": "Cadeia factual com verificacao",
+      "category": "Factual Grounding",
+      "off_mean": 0.875,
+      "on_mean": 1.0,
+      "delta_mean": 0.125,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "4 dos 5 fatos apresentam números específicos e precisos (distância Terra-Sol, diâmetro do Sol, temperatura de Júpiter não foi mencionada, mas Vênus e temperatura solar estão corretas). O quarto item f",
+          "off_elapsed": 42.6,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "5 fatos apresentados com números específicos e detalhes claros (distâncias, diâmetros, temperaturas).",
+          "on_elapsed": 73.7,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "O quinto fato está incompleto (falta o valor da temperatura de Vênus), e os outros quatro são corretos mas não apresentam números suficientemente específicos em alguns casos (por exemplo, \"109 vezes o",
+          "off_elapsed": 17.8,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "5 fatos apresentados com números específicos e precisos.",
+          "on_elapsed": 18.5,
+          "delta": 0.5
+        }
+      ]
+    },
+    {
+      "test_id": "G6",
+      "name": "Resposta com fontes vs fabricacao",
+      "category": "Factual Grounding",
+      "off_mean": 1.0,
+      "on_mean": 0.75,
+      "delta_mean": -0.25,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta menciona um estudo específico (Lieberman et al., 1987) com referência a um PMID, o que indica uma fonte verificável, embora o texto esteja truncado. A presença de uma referência científica ",
+          "off_elapsed": 228.6,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta apresenta informação correta e menciona mecanismos de ação da cafeína, mas não cita fontes específicas ou estudos nomeados. Há uma referência incompleta (\"especia\"), o que pode indicar uma ",
+          "on_elapsed": 128.9,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta fornece uma descrição factual sobre os efeitos da cafeína, menciona mecanismos de ação e cita explicitamente um estudo (Nawrocki et al., 2010) como referência, embora o título do artigo est",
+          "off_elapsed": 115.8,
+          "on_auto": 1,
+          "on_judge": 1,
+          "on_final": 1.0,
+          "on_judge_reason": "A resposta apresenta informações corretas e detalhadas sobre os efeitos da cafeína no corpo humano, mas não fornece fontes verificáveis nem um disclaimer sobre a limitação de fontes, seguindo as instr",
+          "on_elapsed": 36.3,
+          "delta": -1.0
+        }
+      ]
+    },
+    {
+      "test_id": "G7",
+      "name": "Texto longo sem auto-contradicao",
+      "category": "Contradiction Awareness",
+      "off_mean": 0.5,
+      "on_mean": 1.0,
+      "delta_mean": 0.5,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 0,
+          "off_judge": 2,
+          "off_final": 1.0,
+          "off_judge_reason": "O texto apresentado (seu exemplo não foi fornecido, mas considerando a pontuação máxima) deve tratar segurança e riscos de forma equilibrada e coerente, sem contradicções internas, caso siga a instruç",
+          "off_elapsed": 0.0,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "O texto aborda segurança e riscos de forma equilibrada, mencionando medidas de proteção e acidentes históricos sem contradireções ou tensões não resolvidas.",
+          "on_elapsed": 26.6,
+          "delta": 1.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 0,
+          "off_judge": 2,
+          "off_final": 1.0,
+          "off_judge_reason": "O texto apresentado (seu exemplo não foi fornecido, mas considerando o critério e o contexto) deve tratar segurança e riscos de forma equilibrada e coerente, sem contradicções internas, caso siga as i",
+          "off_elapsed": 0.1,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "O texto apresenta uma visão equilibrada sobre energia nuclear, abordando benefícios ambientais e aspectos de segurança de forma coerente e sem contradicções internas.",
+          "on_elapsed": 31.2,
+          "delta": 1.0
+        }
+      ]
+    },
+    {
+      "test_id": "G8",
+      "name": "Numeros consistentes multi-round",
+      "category": "Contradiction Awareness",
+      "off_mean": 0.75,
+      "on_mean": 0.75,
+      "delta_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "Os valores de compra apresentados são razoáveis e coerentes com o mercado de São Paulo. No entanto, a relação preço/aluguel não foi calculada explicitamente ou apresentada de forma consistente e clara",
+          "off_elapsed": 138.9,
+          "on_auto": 2,
+          "on_judge": 1,
+          "on_final": 1.5,
+          "on_judge_reason": "Os valores apresentados para compra são razoáveis e coerentes com o mercado de São Paulo, mas a relação preço/aluguel não foi calculada ou explicitada de forma clara e consistente entre as respostas d",
+          "on_elapsed": 253.6,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "Os valores de aluguel são razoáveis e coerentes com a região, mas a relação preço/aluguel não é calculada explicitamente ou aplicada a um exemplo concreto, sendo apresentada apenas de forma genérica.",
+          "off_elapsed": 55.0,
+          "on_auto": 2,
+          "on_judge": 1,
+          "on_final": 1.5,
+          "on_judge_reason": "Os valores de aluguel apresentados são razoáveis e coerentes com o mercado de São Paulo. No entanto, a relação preço/aluguel não é calculada explicitamente ou de forma consistente (não há conversão cl",
+          "on_elapsed": 50.1,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "test_id": "G9",
+      "name": "Opiniao vs Fato (gating correto)",
+      "category": "Task Adaptation",
+      "off_mean": 0.125,
+      "on_mean": 0.25,
+      "delta_mean": 0.125,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 1,
+          "off_judge": 0,
+          "off_final": 0.5,
+          "off_judge_reason": "A resposta é dogmática ao sugerir apenas Svelte como \"o melhor\" sem comparar com outras opções ou considerar critérios de escolha, violando a rubrica que pede comparação de pelo menos duas opções para",
+          "off_elapsed": 130.0,
+          "on_auto": 1,
+          "on_judge": 0,
+          "on_final": 0.5,
+          "on_judge_reason": "A resposta fornece apenas uma opção (Vue.js) sem comparar com alternativas, o que não atende ao critério de comparar >=2 opções. Além disso, não apresenta pros/cons ou tom equilibrado, sendo assim, é ",
+          "on_elapsed": 133.9,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 0,
+          "off_judge": 0,
+          "off_final": 0.0,
+          "off_judge_reason": "A resposta é dogmática ao recomendar React sem mencionar ou considerar alternativas como Vue.js ou Svelte, que também são frequentemente sugeridos para iniciantes devido a características como curva d",
+          "off_elapsed": 29.2,
+          "on_auto": 1,
+          "on_judge": 0,
+          "on_final": 0.5,
+          "on_judge_reason": "A resposta fornece apenas uma opção (Express) sem comparar com alternativas, o que não atende à opção 2 da rubrica. Além disso, não há menção de outros frameworks para iniciantes, como por exemplo Vue",
+          "on_elapsed": 47.3,
+          "delta": 0.5
+        }
+      ]
+    },
+    {
+      "test_id": "G10",
+      "name": "Calculo com verificacao de passos",
+      "category": "Task Adaptation",
+      "off_mean": 0.875,
+      "on_mean": 1.0,
+      "delta_mean": 0.125,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 1,
+          "off_final": 1.5,
+          "off_judge_reason": "A resposta apresentou o primeiro passo corretamente, mas não completou o cálculo até o encontro dos trens.",
+          "off_elapsed": 57.9,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta apresentou a equação e os passos de forma clara, mostrando o raciocínio inicial do problema, o que atende à rubrica.",
+          "on_elapsed": 44.9,
+          "delta": 0.5
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta apresentou a equação passo a passo e está correta.",
+          "off_elapsed": 35.0,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta apresentou a estrutura de passos correta (definição de variáveis, cálculo da distância percorrida até o saída do segundo trem), seguindo a rubrica de mostrar a equação e os passos. O cálcul",
+          "on_elapsed": 37.3,
+          "delta": 0.0
+        }
+      ]
+    },
+    {
+      "test_id": "G11",
+      "name": "Pesquisa com citacao obrigatoria",
+      "category": "Citation Integrity",
+      "off_mean": 0.75,
+      "on_mean": 0.5,
+      "delta_mean": -0.25,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 0,
+          "off_final": 1.0,
+          "off_judge_reason": "A resposta menciona \"resultados finais da Campanha 'Event Horizon Telescope' em 2024\" e uma \"imagem de resolução nunca antes vista\", mas não fornece citação de fonte verificável ou disclaimer sobre a ",
+          "off_elapsed": 78.8,
+          "on_auto": 2,
+          "on_judge": 0,
+          "on_final": 1.0,
+          "on_judge_reason": "As citações e detalhes mencionados (como imagens do EHT em 2024 e descrição de \"anéis de luz\") não estão acompanhados de fontes verificáveis ou de um disclaimer sobre a limitação de conhecimento. Além",
+          "on_elapsed": 71.6,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "As informações fornecidas estão de acordo com o consenso científico até 2024, mencionando a EHT e a imagem do buraco negro M87*, com referência implícita a publicações anteriores, embora não seja cita",
+          "off_elapsed": 64.6,
+          "on_auto": 2,
+          "on_judge": 0,
+          "on_final": 1.0,
+          "on_judge_reason": "A resposta contém uma afirmação sobre \"divulgadas em 2024\" sem citação ou fonte verificável, e menciona detalhes que não estão corroborados por fontes públicas conhecidas até fevereiro de 2026. Não há",
+          "on_elapsed": 55.4,
+          "delta": -1.0
+        }
+      ]
+    },
+    {
+      "test_id": "G12",
+      "name": "Criativo SEM verificacao (gating negativo)",
+      "category": "Citation Integrity",
+      "off_mean": 1.0,
+      "on_mean": 1.0,
+      "delta_mean": 0.0,
+      "seeds": [
+        {
+          "seed": 1,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta é um poema criativo com imagens poéticas, sem elementos técnicos ou disclaimers desnecessários.",
+          "off_elapsed": 28.6,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta é um poema criativo com imagens poeticas, sem qualquer verificação técnica ou disclaimer desnecessário.",
+          "on_elapsed": 32.9,
+          "delta": 0.0
+        },
+        {
+          "seed": 2,
+          "off_auto": 2,
+          "off_judge": 2,
+          "off_final": 2.0,
+          "off_judge_reason": "A resposta é um poema criativo com imagens poeticas, sem elementos técnicos ou disclaimers desnecessários.",
+          "off_elapsed": 16.5,
+          "on_auto": 2,
+          "on_judge": 2,
+          "on_final": 2.0,
+          "on_judge_reason": "A resposta é um poema criativo com imagens poeticas, sem elementos técnicos ou disclaimers desnecessários.",
+          "on_elapsed": 21.2,
+          "delta": 0.0
+        }
+      ]
+    }
+  ]
+}
